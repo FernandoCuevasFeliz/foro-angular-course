@@ -1,0 +1,79 @@
+<div class="container">
+  <div
+    class="row d-flex justify-content-center align-items-center center-form-full"
+  >
+    <div class="col-md-5">
+      <div class="card">
+        <div class="card-header bg-dark">
+          <h2 class="card-title text-center text-white">{{ page_title }}</h2>
+        </div>
+        <div class="card-body">
+          <div
+            class="alert alert-danger alert-dismissible fade show"
+            role="alert"
+            *ngIf="sendValid"
+          >
+            {{ sendValid }}
+            <button
+              type="button"
+              class="close"
+              data-dismiss="alert"
+              aria-label="Close"
+              (click)="resetSendvalid()"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div
+            class="alert alert-danger alert-dismissible fade show"
+            role="alert"
+            *ngIf="status == 'error'"
+          >
+            {{ message }}
+            <button
+              type="button"
+              class="close"
+              data-dismiss="alert"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <form [formGroup]="loginForm" (ngSubmit)="onSendForm()">
+            <div class="form-group">
+              <input
+                type="email"
+                class="form-control"
+                formControlName="email"
+                placeholder="Email"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="password"
+                class="form-control"
+                formControlName="password"
+                placeholder="Password"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-dark btn-block">
+                Access
+              </button>
+            </div>
+            <div class="form-group text-center">
+              <span>
+                If you don't have an account,
+                <a routerLink="/auth/register">
+                  click here to register
+                </a>
+              </span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

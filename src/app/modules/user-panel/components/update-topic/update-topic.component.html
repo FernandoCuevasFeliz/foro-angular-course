@@ -1,0 +1,118 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header bg-dark">
+        <h2 class="card-title text-center text-white">{{ page_title }}</h2>
+      </div>
+      <div class="card-body">
+        <div
+          class="alert alert-danger alert-dismissible fade show"
+          role="alert"
+          *ngIf="status == 'error'"
+        >
+          {{ message }}
+          <button
+            type="button"
+            class="close"
+            data-dismiss="alert"
+            aria-label="Close"
+            (click)="resetSendvalid()"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form [formGroup]="editTopicForm" (ngSubmit)="onSendForm()">
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control"
+              formControlName="title"
+              placeholder="Title of Topic"
+              required
+            />
+            <small
+              id="emailHelp"
+              class="alert-danger"
+              *ngIf="title.invalid && (title.dirty || title.touched)"
+            >
+              <div
+                class="container-error-message"
+                *ngIf="title.errors.required"
+              >
+                Title is required
+              </div>
+            </small>
+          </div>
+
+          <div class="form-group">
+            <textarea
+              class="form-control"
+              id="exampleFormControlTextarea1"
+              rows="5"
+              placeholder="Content of Topic"
+              formControlName="content"
+            ></textarea>
+            <small
+              id="emailHelp"
+              class="alert-danger"
+              *ngIf="content.invalid && (content.dirty || content.touched)"
+            >
+              <div
+                class="container-error-message"
+                *ngIf="content.errors.required"
+              >
+                Content is required
+              </div>
+            </small>
+          </div>
+          <div class="form-group">
+            <select
+              class="form-control"
+              id="exampleFormControlSelect1"
+              formControlName="lang"
+            >
+              <option value="" selected>Language </option>
+              <option value="C">C </option>
+              <option value="C#">C# </option>
+              <option value="C++">C++ </option>
+              <option value="CSS">CSS </option>
+              <option value="Clojure">Clojure </option>
+              <option value="Go">Go </option>
+              <option value="Groovy">Groovy </option>
+              <option value="Html">Html</option>
+              <option value="Haskell">Haskell </option>
+              <option value="JavaScript">JavaScript </option>
+              <option value="Java">Java </option>
+              <option value="Matlab">Matlab </option>
+              <option value="Objective-C">Objective-C </option>
+              <option value="Perl">Perl </option>
+              <option value="Perl">PHP </option>
+              <option value="Ruby">Ruby </option>
+              <option value="Python">Python </option>
+              <option value="R">R </option>
+              <option value="Shell">Shell </option>
+              <option value="Scala">Scala </option>
+              <option value="Swift">Swift </option>
+              <option value="Visual Basic">Visual Basic </option></select
+            >
+          </div>
+          <div class="form-group">
+            <textarea
+              class="form-control"
+              id="exampleFormControlTextarea1"
+              rows="5"
+              placeholder="Code </>"
+              formControlName="code"
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <button type="submit" class="btn btn-dark btn-block">
+              Create
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

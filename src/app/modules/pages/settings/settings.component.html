@@ -1,0 +1,180 @@
+<div class="container">
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-12">
+      <div class="card border-0">
+        <div class="card-body">
+          <div
+            class="alert alert-danger alert-dismissible fade show"
+            role="alert"
+            *ngIf="status == 'error'"
+          >
+            {{ message }}
+            <button
+              type="button"
+              class="close"
+              data-dismiss="alert"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div
+            class="alert alert-success alert-dismissible fade show"
+            role="alert"
+            *ngIf="status == 'success'"
+          >
+            {{ message }}
+            <button
+              type="button"
+              class="close"
+              data-dismiss="alert"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <h1 class="text-center pt-3 pb-4">Profile Update</h1>
+          <form [formGroup]="settingsForm" (ngSubmit)="onSendForm()">
+            <div class="form-group">
+              <angular-file-uploader
+                [config]="afuConfig"
+                (ApiResponse)="onSelectImg($event)"
+              >
+              </angular-file-uploader>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="name">Name</label>
+                <input
+                  id="name"
+                  type="text"
+                  class="form-control"
+                  formControlName="name"
+                  required
+                />
+                <small
+                  id="emailHelp"
+                  class="alert-danger"
+                  *ngIf="name.invalid && (name.dirty || name.touched)"
+                >
+                  <div
+                    class="container-error-message"
+                    *ngIf="name.errors.required"
+                  >
+                    Name is required
+                  </div>
+                  <div
+                    class="container-error-message"
+                    *ngIf="name.errors.pattern"
+                  >
+                    Name is invalid
+                  </div>
+                  <div
+                    class="container-error-message"
+                    *ngIf="name.errors.minlength"
+                  >
+                    The name is very small
+                  </div>
+                </small>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="surname">Surname</label>
+
+                <input
+                  id="surname"
+                  type="text"
+                  class="form-control"
+                  formControlName="surname"
+                  required
+                />
+                <small
+                  id="emailHelp"
+                  class="alert-danger"
+                  *ngIf="surname.invalid && (surname.dirty || surname.touched)"
+                >
+                  <div
+                    class="container-error-message"
+                    *ngIf="surname.errors.required"
+                  >
+                    Surname is required
+                  </div>
+                  <div
+                    class="container-error-message"
+                    *ngIf="surname.errors.pattern"
+                  >
+                    Surname is invalid
+                  </div>
+                  <div
+                    class="container-error-message"
+                    *ngIf="surname.errors.minlength"
+                  >
+                    The surname name is very small
+                  </div>
+                </small>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group col-md-10">
+                <label for="email">Email</label>
+                <input
+                  id="email"
+                  type="email"
+                  class="form-control"
+                  formControlName="email"
+                  required
+                  disabled
+                />
+                <small
+                  id="emailHelp"
+                  class="alert-danger"
+                  *ngIf="email.invalid && (email.dirty || email.touched)"
+                >
+                  <div
+                    class="container-error-message"
+                    *ngIf="email.errors.required"
+                  >
+                    Email is required
+                  </div>
+                  <div
+                    class="container-error-message"
+                    *ngIf="email.errors.pattern"
+                  >
+                    Email is invalid
+                  </div>
+                  <div
+                    class="container-error-message"
+                    *ngIf="email.errors.minlength"
+                  >
+                    The email is very small
+                  </div>
+                </small>
+              </div>
+              <div class="form-group col-md-2">
+                <label for="btna" style="color: transparent;">.</label>
+                <a
+                  id="btna"
+                  routerLink="/user/change/email"
+                  class="btn btn-primary btn-block"
+                  >Change</a
+                >
+              </div>
+            </div>
+
+            <div class="form-group mr-auto">
+              <button
+                type="submit"
+                class="btn btn-dark"
+                [disabled]="!settingsForm.valid"
+              >
+                Save
+              </button>
+            </div>
+          </form>
+          <h3 class="text-center pt-3 pb-4">Change Password</h3>
+          <app-password-form></app-password-form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

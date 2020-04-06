@@ -1,0 +1,14 @@
+@media screen and (min-width: 992px) {
+  .tab-content {
+    margin-left: 200px;
+  }
+}
+@media screen and (max-width: 992px) {
+  .bar {
+    display: none;
+  }
+}
+.d-right {
+  top: calc(4.5rem + 16px);
+  right: 0;
+}

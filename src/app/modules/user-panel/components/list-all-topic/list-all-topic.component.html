@@ -1,0 +1,57 @@
+<app-header></app-header>
+
+<div class="col-lg-9 mt-4">
+  <div class="card mb-4" *ngFor="let topic of topics">
+    <div class="card-header d-flex justify-content-between">
+      <h5>{{ topic.title }}</h5>
+    </div>
+    <div class="card-body">
+      <p class="card-text">
+        {{ topic.content }}
+      </p>
+      <div class="d-flex justify-content-between align-items-center">
+        <a [routerLink]="['/topic', topic._id]" class="btn btn-primary"
+          >Read complete</a
+        >
+        {{ topic.createdAt | amLocale: "en" | amDateFormat: "LL" }}
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="d-flex justify-content-between align-items-center">
+        <h5>Tag:</h5>
+        <span class="bg-success p-2 text-white rounded-pill">{{
+          topic.lang
+        }}</span>
+      </div>
+    </div>
+  </div>
+  <!-- paginations -->
+  <nav aria-label="Page navigation col-lg-12 ">
+    <ul class="pagination">
+      <li class="page-item">
+        <a
+          class="page-link"
+          [routerLink]="['/topics', prev_page]"
+          aria-label="Previous"
+        >
+          <span aria-hidden="true">&laquo;</span>
+          <span class="sr-only">Previous</span>
+        </a>
+      </li>
+      <li class="page-item" *ngFor="let num of number_pages">
+        <a class="page-link" [routerLink]="['/topics', num]">{{ num }}</a>
+      </li>
+
+      <li class="page-item">
+        <a
+          class="page-link"
+          [routerLink]="['/topics', next_page]"
+          aria-label="Next"
+        >
+          <span aria-hidden="true">&raquo;</span>
+          <span class="sr-only">Next</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>

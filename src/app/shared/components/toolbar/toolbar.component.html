@@ -1,0 +1,62 @@
+<div
+  class="nav flex-column nav-pills"
+  id="v-pills-tab"
+  role="tablist"
+  aria-orientation="vertical"
+>
+  <a
+    class="nav-link"
+    id="v-pills-home-tab"
+    data-toggle="pill"
+    routerLink="/user/panel"
+    routerLinkActive="active"
+    role="tab"
+    aria-controls="v-pills-home"
+    aria-selected="true"
+    >Panel</a
+  >
+  <a
+    class="nav-link"
+    id="v-pills-profile-tab"
+    data-toggle="pill"
+    [routerLink]="['/users']"
+    routerLinkActive="active"
+    role="tab"
+    aria-controls="v-pills-profile"
+    aria-selected="false"
+    >Users</a
+  >
+  <a
+    class="nav-link"
+    id="v-pills-messages-tab"
+    data-toggle="pill"
+    [routerLink]="['/user/create/topic']"
+    routerLinkActive="active"
+    role="tab"
+    aria-controls="v-pills-messages"
+    aria-selected="false"
+    >Create Topic</a
+  >
+  <a
+    class="nav-link"
+    id="v-pills-messages-tab"
+    data-toggle="pill"
+    [routerLink]="['/user/companions']"
+    routerLinkActive="active"
+    role="tab"
+    aria-controls="v-pills-messages"
+    aria-selected="false"
+    >Companions</a
+  >
+  <a
+    class="nav-link"
+    id="v-pills-settings-tab"
+    data-toggle="pill"
+    routerLink="/user/settings"
+    routerLinkActive="active"
+    role="tab"
+    aria-controls="v-pills-settings"
+    aria-selected="false"
+    >Settings</a
+  >
+</div>

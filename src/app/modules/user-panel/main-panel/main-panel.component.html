@@ -1,0 +1,14 @@
+<app-header></app-header>
+<div class="container-fluid mt-6">
+  <div class="row py-3 position-relative">
+    <div class="col-lg-2 position-fixed float-left h-100 bar">
+      <app-toolbar></app-toolbar>
+    </div>
+    <div class="tab-content col-lg-8 mx-auto" id="v-pills-tabContent">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  <div class="col-lg-2 position-fixed float-right h-100 d-right bar">
+    <app-toolbar></app-toolbar>
+  </div>
+</div>
